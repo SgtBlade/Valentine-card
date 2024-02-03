@@ -14,7 +14,7 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 
-<body class="__className_e66fe9">
+<body>
     <div class="container">
         <p class="subtitle">‎ </p>
         <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
@@ -57,10 +57,17 @@
             justify-content: center;
             align-items: center;
             flex-flow: column;
+            max-width: 100vw;
         }
 
         img {
-            height: 40rem;
+            max-height: 40rem;
+            height: 100%;
+            max-width: 100vw;
+        }
+
+        h1 {
+            padding: 1rem;
         }
 
         h1,
@@ -74,6 +81,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-flow: row wrap;
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -82,6 +90,7 @@
             border: none;
             font-size: 2.2rem;
             font-weight: bold;
+            max-width: 100vw;
 
             color: white;
             cursor: pointer;
@@ -146,8 +155,8 @@
                 finalPhase();
             } else {
                 noButtonElement.textContent = textOptions[count];
-                yesButtonElement.style.fontSize = `${3.2 + ((count + 1) * 3.2)}rem`;
-            }
+                if(window.innerWidth <= 512 && (3.2 + ((count + 1) * 3.2)) > 22.6) yesButtonElement.style.fontSize = `22.6rem`;
+                else yesButtonElement.style.fontSize = `${3.2 + ((count + 1) * 3.2)}rem`;            }
         });
 
         const finalPhase = () => {
